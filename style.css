@@ -65,11 +65,7 @@
 .navbar ul li:hover::after{
     width: 100%;
 }
-/**
- * .home-text{
- *     color: rgb(214, 179, 117);
- * }
- */
+
 
 .content{
     width: 100%;
@@ -218,9 +214,6 @@ span{
     font-size: 1.2rem;
     color: #b35c2e;
   }
-/**
- *  SERVICE END
- */
 /* TESTIMONIAL */
 .testimonial-content {
         width: 100%;
@@ -259,9 +252,7 @@ span{
   .testimonial-info {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-left: 20px;
+    padding-left: 25px;
   }
   
   .testimonial-img {
@@ -280,22 +271,27 @@ span{
   }
   
   .testimonial-name {
-    text-align: center;
+    left: 380px;
+    position: absolute;
+    top: 73%;
   }
   
   .testimonial-name h4 {
-    margin: 0;
     padding-left: 25px;
     text-transform: uppercase;
     font-weight: bold;
     font-style: italic;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+
   }
   
   .testimonial-name p {
-    margin: 0;
     color: #b35c2e;
-    padding-left: 25px;
+    padding-right: 50px;
     font-style: italic;
+
   }
   
 
