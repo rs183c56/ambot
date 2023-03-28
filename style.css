@@ -113,27 +113,33 @@ span{
 /**
  * ABOUT
  */
+ /**
+ * ABOUT
+ */
  .about-content{
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    text-align: center;
-    color:#ffffff;
-
+  width: 100%;
+  position: absolute;
+  top: 53%;
+  transform: translateY(-50%);
+  text-align: center;
+  color:#ffffff;
 }
 .about-content h1 {
-    font-size: 35px;
-    color: #826A47;
+  font-size: 30px;
+  color: #826A47;
 }
 .about-content h2 {
-    font-size: 35px;
-    color: #826A47;
+  margin-top: 45px;
+  font-size: 30px;
+  color: #826A47;
 }
 .about-content p{
-    /* text-align: justify; */
-    text-align: center;
-    margin: 60px;
+  /* font-family: 'Oswald'; */
+  /* font-size: 20px; */
+  text-align: justify;
+  text-align: center;
+  margin: 45px;
+  margin-bottom: auto;
 }
 /**
  * SERVICE
