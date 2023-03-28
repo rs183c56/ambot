@@ -120,6 +120,7 @@ span{
     transform: translateY(-50%);
     text-align: center;
     color:#ffffff;
+
 }
 .about-content h1 {
     font-size: 35px;
@@ -130,7 +131,7 @@ span{
     color: #826A47;
 }
 .about-content p{
-    text-align: justify;
+    /* text-align: justify; */
     text-align: center;
     margin: 60px;
 }
@@ -144,18 +145,19 @@ span{
     transform: translateY(-50%);
     text-align: center;
     color:#ffffff;
+
 }
 .service-content h1 {
     font-size: 35px;
     color: #826A47;
     margin-bottom: 10px;
+    padding: 10px;
 }
 
 .service-content p{
     text-align: justify;
     text-align: center;
-    margin-top: 0;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     
 }
 .menu-container {
@@ -166,7 +168,7 @@ span{
   h1 {
     text-align: center;
     margin-bottom: 10px;
-    margin-top: 30px;
+    /* margin-top: 20px; */
   }
   
   .coffee-menu {
