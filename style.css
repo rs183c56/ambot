@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: 'poppins' ,sans-serif;
 }
 
 .banner{
@@ -19,6 +19,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    
 }
 
 .navbar-container {
@@ -225,7 +226,7 @@ span{
     color: #b35c2e;
   }
 /* TESTIMONIAL */
-.testimonial-content {
+/* .testimonial-content {
         width: 100%;
         position: absolute;
         top: 50%;
@@ -302,7 +303,7 @@ span{
     padding-right: 50px;
     font-style: italic;
 
-  }
+  } */
 
 /* CONTACT */
 .contact-content {
