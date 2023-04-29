@@ -12,11 +12,11 @@
             <img src="logo.png" class="logo">
             <ul>
 
-                <li><a href="index.html">Home</a></li>
+                <!-- <li><a href="index.html">Home</a></li>
                  <li><a href="about.html">About</a></li>
                  <li><a href="service.html">Service</a></li>
                  <li><a href="testimonial.html">Testimonial</a></li>
-                 <li><a href="contact.html">Contact Us</a></li>
+                 <li><a href="contact.html">Contact Us</a></li> -->
 
             </ul>
         </div>
@@ -24,10 +24,9 @@
     </div>
   </div>
 
-  
 
 
-  <div class="form-content">
+  <div class="form-content1" style="display: block;" id="form1">
       <div class="box">
           <div class="container">
       
@@ -46,18 +45,15 @@
                   <i class='bx bx-user' ></i>
               </div>
               <div class="input-field">
-                  <input type="email" class="input" placeholder="Email" id="">
+                  <input type="email" class="input" placeholder="Email" id="email">
                   <i class='bx bx-user' ></i>
               </div>
               
               <div class="input-field">
-                  <input type="Password" class="input" placeholder="Password" id="">
+                  <input type="Password" class="input" placeholder="Password" id="password">
                   <i class='bx bx-lock-alt'></i>
               </div>
-              <div class="input-field">
-                <input type="Password" class="input" placeholder="Re-type Password" id="">
-                <i class='bx bx-lock-alt'></i>
-            </div>
+
 
 
             
@@ -85,26 +81,103 @@
 
       
               <div class="input-field">
-                  <input type="submit" class="submit" value="Register" id="">
+                  <input type="submit" class="submit" value="Register" id="" onclick="addData()">
               </div>
       
               <div class="two-col">
                   <div class="one">
                      <input type="checkbox" name="" id="check">
                      <label for="check">I agree with terms and conditions</label>
+                     <br>
+                  </div>
+                  <br>
+                  <div class="log-in-submit">
+                    <input  type="submit" id="login" value="Log in Now!" onclick="shwLogin()">
+
                   </div>
 
-              
-              </div>
-              <div>
-                  <p style="font-size: 12px;">Already have an account? <a href="forms.html" style="color: #826A47;"> Login now!</a></p>
-
-              </div>      
+                  
+              </div>  
           </div>
       </div>  
   </div>
 
 
+  <div class="form-content2" style="display: none;" id="form2">
+    <div class="box">
+        <div class="container">
+    
+            <div class="top">
+        
+                <header>Login</header>
+            </div>
+    
+            <div class="input-field">
+                <input type="text" class="input" placeholder="Email" id="eml">
+                <i class='bx bx-user' ></i>
+            </div>
+    
+            <div class="input-field">
+                <input type="Password" class="input" placeholder="Password" id="pwd">
+                <i class='bx bx-lock-alt'></i>
+            </div>
+    
+            <div class="input-field">
+                <input type="submit" class="submit" value="Login" id="" onclick="auth()">
+            </div>
+    
+            <div class="two-col">
+                <div class="one">
+                   <input type="checkbox" name="" id="check">
+                   <label for="check"> Remember Me</label>
+                </div>
+                <div class="two">
+                    <label><a href="#">Forgot password?</a></label>
+                </div>
+            
+            </div>
+        </div>
+    </div>  
+</div>
 
+  <script>
+        function auth(){
+            var email = document.getElementById("eml").value;
+            var password = document.getElementById("pwd").value;
+    
+            var getEmail = localStorage.getItem('userEmail');
+              var getPwd = localStorage.getItem('userPwd');
+    
+              if(email == "admin@gmail.com" && password == "admin123"){
+                window.location.assign("home.html");
+                alert("Login Successfully");
+              }
+              
+              if(email == getEmail){
+                if(password == getPwd){
+                    window.location.assign("home.html");
+                    alert("Login Sucessful");
+                }
+                else alert("Wrong password")
+              }
+            }
+    
+            function addData(){
+                var email2 = document.getElementById("email").value;
+                var password2 = document.getElementById("password").value;
+                
+                alert("Registration Complete!")
+
+                document.getElementById("form1").style.display = "none";
+                document.getElementById("form2").style.display = "block";
+                localStorage.setItem('userEmail',email2);
+                localStorage.setItem('userPwd',password2);
+            }
+
+            function shwLogin(){
+                document.getElementById("form2").style.display = "block";
+                document.getElementById("form1").style.display = "none";
+            }
+  </script>
 </body>
 </html>
