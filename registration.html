@@ -85,7 +85,7 @@
 
       
               <div class="input-field">
-                  <input type="submit" class="submit" value="Register" id="" onclick="addData()">
+                  <input type="submit" class="submit" value="Register" id="" onclick="reg()">
               </div>
       
               <div class="two-col">
@@ -145,43 +145,96 @@
 </div>
 
   <script>
-        function auth(){
-            var email = document.getElementById("eml").value;
-            var password = document.getElementById("pwd").value;
+        // function auth(){
+        //     const email = document.getElementById("eml").value;
+        //     const password = document.getElementById("pwd").value;
     
-            var getEmail = localStorage.getItem('userEmail');
-              var getPwd = localStorage.getItem('userPwd');
+        //     const getEmail = localStorage.getItem('userEmail');
+        //     const getPwd = localStorage.getItem('userPwd');
+        //     //may31
+        //     result.innerText = localStorage.getItem('userEmail');
+        //     result.innerText = localStorage.getItem('userPwd');
     
-              if(email == "admin@gmail.com" && password == "admin123"){
-                window.location.assign("home.html");
-                alert("Login Successfully");
-              }
+        //       if(email == "admin@gmail.com" && password == "admin123"){
+        //         window.location.assign("home.html");
+        //         alert("Login Successfully");
+        //       }
               
-              if(email == getEmail){
-                if(password == getPwd){
-                    window.location.assign("home.html");
-                    alert("Login Sucessful");
-                }
-                else alert("Wrong password")
-              }
-            }
-    
-            function addData(){
-                var email2 = document.getElementById("email").value;
-                var password2 = document.getElementById("password").value;
-                
-                alert("Registration Complete!")
+        //       if(email == getEmail){
+        //         if(password == getPwd){
+        //             window.location.assign("home.html");
+        //             alert("Login Sucessful");
+        //         }
+        //         else alert("Wrong password")
+        //       }
 
-                document.getElementById("form1").style.display = "none";
-                document.getElementById("form2").style.display = "block";
-                localStorage.setItem('userEmail',email2);
-                localStorage.setItem('userPwd',password2);
-            }
+        //     }
+    
+            // function addData(){
+            //     const email2 = document.getElementById("email").value;
+            //     const password2 = document.getElementById("password").value;
+
+
+                
+            //     alert("Registration Complete!")
+
+            //     document.getElementById("form1").style.display = "none";
+            //     document.getElementById("form2").style.display = "block";
+            //     localStorage.setItem('userEmail',email2.value);
+            //     localStorage.setItem('userPwd',password2.value);
+            //     //may31
+
+            //     result.innerText = localStorage.getItem('userEmail');
+            //     result.innerText = localStorage.getItem('userPwd');
+            // }
+
 
             function shwLogin(){
                 document.getElementById("form2").style.display = "block";
                 document.getElementById("form1").style.display = "none";
             }
+            function reg(){
+
+            var userEmail = document.querySelector('#email');
+            var password = document.querySelector('#password');
+        // var Use = document.querySelector('#user')
+
+        if(userEmail.value === '' || password.value === ''  ){
+            alert('Please input what is required!');
+
+        } else {
+            var user = {
+                userEmail: userEmail.value,
+                password: password.value,
+            }
+
+            var json = JSON.stringify(user);
+
+            localStorage.setItem('user', json);
+            console.log('User Added');
+            alert('You are now registered!');
+
+            userEmail.value = '';
+            password.value = '';
+
+         }
+        };
+
+        function auth(){
+            var userEmail = document.querySelector('#eml').value;
+            var password = document.querySelector('#pwd').value;
+            var user = localStorage.getItem('user');
+            var key = JSON.parse(user);
+
+            if (userEmail == '' && password == ''){
+                alert('Please input what is required!');
+            } else if ((userEmail == key.userEmail || userEmail == key[email]) && password == key.password){
+                window.location.assign('home.html');
+                alert('Successfully login!');
+            } else {
+                alert('User not found!');
+            }
+        }
   </script>
 </body>
 </html>
