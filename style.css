@@ -488,8 +488,14 @@ label a{
   border: 0px solid #a78b61;
   
 }
+/* form validation error message */
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 15px;
 
 
+}
 
   
 

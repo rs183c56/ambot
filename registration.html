@@ -39,28 +39,31 @@
                 <input type="email" name="email" placeholder="Email" required />
               </div> -->
 
-      <!--  -->
+ 
               <div class="input-field">
-                  <input type="text" class="input" placeholder="Username" id="">
+                  <input type="username" class="input" placeholder="Username" id="username">
                   <i class='bx bx-user' ></i>
               </div>
+              <div class="error-message" id="username-error"></div>
+              
               <div class="input-field">
                   <input type="email" class="input" placeholder="Email" id="email">
                   <i class='bx bx-user' ></i>
               </div>
+              <div class="error-message" id="eml-error"></div>
               
               <div class="input-field">
                   <input type="Password" class="input" placeholder="Password" id="password">
                   <i class='bx bx-lock-alt'></i>
               </div>
+              <div class="error-message" id="pwd-error"></div>
+
               <div class="input-field">
                 <input type="Password" class="input" placeholder="Re-type Password" id="password">
                 <i class='bx bx-lock-alt'></i>
             </div>
+            <div></div>
 
-
-
-            
 
 
               <div class="input_field select_option">
@@ -118,13 +121,18 @@
     
             <div class="input-field">
                 <input type="text" class="input" placeholder="Email" id="eml">
-                <i class='bx bx-user' ></i>
+                <i class='bx bx-user'></i>  
             </div>
+            <div class="error-message" id="eml-error"></div>
+            
     
             <div class="input-field">
                 <input type="Password" class="input" placeholder="Password" id="pwd">
                 <i class='bx bx-lock-alt'></i>
             </div>
+            <div class="error-message" id="pwd-error"></div>
+            
+            
     
             <div class="input-field">
                 <input type="submit" class="submit" value="Login" id="" onclick="auth()">
@@ -145,96 +153,105 @@
 </div>
 
   <script>
-        // function auth(){
-        //     const email = document.getElementById("eml").value;
-        //     const password = document.getElementById("pwd").value;
-    
-        //     const getEmail = localStorage.getItem('userEmail');
-        //     const getPwd = localStorage.getItem('userPwd');
-        //     //may31
-        //     result.innerText = localStorage.getItem('userEmail');
-        //     result.innerText = localStorage.getItem('userPwd');
-    
-        //       if(email == "admin@gmail.com" && password == "admin123"){
-        //         window.location.assign("home.html");
-        //         alert("Login Successfully");
-        //       }
-              
-        //       if(email == getEmail){
-        //         if(password == getPwd){
-        //             window.location.assign("home.html");
-        //             alert("Login Sucessful");
-        //         }
-        //         else alert("Wrong password")
-        //       }
-
-        //     }
-    
-            // function addData(){
-            //     const email2 = document.getElementById("email").value;
-            //     const password2 = document.getElementById("password").value;
-
-
-                
-            //     alert("Registration Complete!")
-
-            //     document.getElementById("form1").style.display = "none";
-            //     document.getElementById("form2").style.display = "block";
-            //     localStorage.setItem('userEmail',email2.value);
-            //     localStorage.setItem('userPwd',password2.value);
-            //     //may31
-
-            //     result.innerText = localStorage.getItem('userEmail');
-            //     result.innerText = localStorage.getItem('userPwd');
-            // }
-
-
             function shwLogin(){
                 document.getElementById("form2").style.display = "block";
                 document.getElementById("form1").style.display = "none";
             }
-            function reg(){
 
-            var userEmail = document.querySelector('#email');
-            var password = document.querySelector('#password');
-        // var Use = document.querySelector('#user')
+            function reg() {
+                var userName = document.querySelector('#username').value;
+                var userEmail = document.querySelector('#email').value;
+                var password = document.querySelector('#password').value;
+                var usernameError = document.querySelector('#username-error');
+                var emailError = document.querySelector('#eml-error');
+                var passwordError = document.querySelector('#pwd-error');
 
-        if(userEmail.value === '' || password.value === ''  ){
-            alert('Please input what is required!');
+                // Reset error messages
+                usernameError.textContent = '';
+                emailError.textContent = '';
+                passwordError.textContent = '';
 
-        } else {
-            var user = {
-                userEmail: userEmail.value,
-                password: password.value,
-            }
+                // Validate username
+                if (userName.trim() === '') {
+                usernameError.textContent = '⚠ This is a required question.';
+                document.querySelector('#username').style.borderColor = 'red';
+                return false;
+                } else {
+                document.querySelector('#username').style.borderColor = '';
+                }
 
-            var json = JSON.stringify(user);
+                // Validate email
+                if (userEmail.trim() === '') {
+                emailError.textContent = '⚠ This is a required question.';
+                document.querySelector('#eml').style.borderColor = 'red';
+                return false;
+                } else {
+                document.querySelector('#eml').style.borderColor = '';
+                }
 
-            localStorage.setItem('user', json);
-            console.log('User Added');
-            alert('You are now registered!');
+                // Validate password
+                if (password.trim() === '') {
+                passwordError.textContent = '⚠ This is a required question.';
+                document.querySelector('#pwd').style.borderColor = 'red';
+                return false;
+                } else {
+                document.querySelector('#pwd').style.borderColor = '';
+                }
 
-            userEmail.value = '';
-            password.value = '';
+                // Registration logic
+                var user = {
+                userEmail: userEmail,
+                password: password,
+                };
 
-         }
-        };
+                var json = JSON.stringify(user);
 
-        function auth(){
-            var userEmail = document.querySelector('#eml').value;
-            var password = document.querySelector('#pwd').value;
-            var user = localStorage.getItem('user');
-            var key = JSON.parse(user);
+                localStorage.setItem('user', json);
+                console.log('User Added');
+                alert('You are now registered!');
 
-            if (userEmail == '' && password == ''){
-                alert('Please input what is required!');
-            } else if ((userEmail == key.userEmail || userEmail == key[email]) && password == key.password){
-                window.location.assign('home.html');
-                alert('Successfully login!');
+                document.querySelector('#email').value = '';
+                document.querySelector('#password').value = '';
+                }
+
+
+            function auth() {
+                var userEmail = document.querySelector('#eml').value;
+                var password = document.querySelector('#pwd').value;
+                var emailError = document.querySelector('#eml-error');
+                var passwordError = document.querySelector('#pwd-error');
+                var user = localStorage.getItem('user');
+                var key = JSON.parse(user);
+
+            // Reset error messages
+            emailError.textContent = '';
+            passwordError.textContent = '';
+
+            //validate email
+            if (userEmail.trim() === '') {
+            emailError.textContent = ' ⚠ The email you entered is not connected to an account.';
+            document.querySelector('#eml').style.borderColor = 'red';
+            return false;
             } else {
-                alert('User not found!');
+            document.querySelector('#eml').style.borderColor = '';
             }
-        }
+            //validate password
+            if (password.trim() === '') {
+            passwordError.textContent = '⚠ The password you have entered is incorrect.';
+            document.querySelector('#pwd').style.borderColor = 'red';
+            return false;
+            } else {
+            document.querySelector('#pwd').style.borderColor = '';
+            }
+
+            if ((userEmail === key.userEmail || userEmail === key.email) && password === key.password) {
+            window.location.assign('service.html');
+            alert('Successfully login!');
+            } else {
+            alert('User not found!');
+            }
+            }
+
   </script>
 </body>
 </html>
