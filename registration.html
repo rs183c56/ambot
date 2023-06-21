@@ -33,58 +33,45 @@
               <div class="top">
           
                   <header>Register</header>
+                  <div class="error-message" id="error-message"></div>
               </div>
-              <!--  -->
-              <!-- <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
-                <input type="email" name="email" placeholder="Email" required />
-              </div> -->
-
+            
  
               <div class="input-field">
-                  <input type="username" class="input" placeholder="Username" id="username">
+                  <input type="text" class="input" placeholder="Username" id="username">
+                
                   <i class='bx bx-user' ></i>
               </div>
               <div class="error-message" id="username-error"></div>
               
               <div class="input-field">
-                  <input type="email" class="input" placeholder="Email" id="email">
+                  <input type="text" class="input" placeholder="Email" id="email">
                   <i class='bx bx-user' ></i>
               </div>
               <div class="error-message" id="eml-error"></div>
               
               <div class="input-field">
                   <input type="Password" class="input" placeholder="Password" id="password">
+                  
                   <i class='bx bx-lock-alt'></i>
               </div>
               <div class="error-message" id="pwd-error"></div>
 
               <div class="input-field">
-                <input type="Password" class="input" placeholder="Re-type Password" id="password">
+                <input type="Password" class="input" placeholder="Re-type Password" id="passwords">
+
                 <i class='bx bx-lock-alt'></i>
             </div>
-            <div></div>
+            <div class="error-message" id="pwds-error"></div>
 
 
-
-              <div class="input_field select_option">
-                <select>
-                  <option>Select a country</option>
-                  <option>Philippines</option>
-                  <option>United States</option>
-                </select>
-                <div class="select_arrow"></div>
-              </div>
-              <div class="input-field">Birthday
-                <label for ="Birthday"></label><br>
-                <input type = "date" name = "Birthday"><br>
-              </div>
               
-            <div class="radio_option">
+            <!-- <div class="radio_option">
               <input type="radio" name="radiogroup1" id="rd1">
               <label for="rd1">Male</label>
               <input type="radio" name="radiogroup1" id="rd2">
               <label for="rd2">Female</label>
-              </div>
+              </div> -->
 
       
               <div class="input-field">
@@ -99,7 +86,7 @@
                   </div>
                   <br>
                   <div class="log-in-submit">
-                    <input  type="submit" id="login" value="Log in Now!" onclick="shwLogin()">
+                    <a href="login.html">Log in Now!</a>
 
                   </div>
 
@@ -109,149 +96,6 @@
       </div>  
   </div>
 
-
-  <div class="form-content2" style="display: none;" id="form2">
-    <div class="box">
-        <div class="container">
-    
-            <div class="top">
-        
-                <header>Login</header>
-            </div>
-    
-            <div class="input-field">
-                <input type="text" class="input" placeholder="Email" id="eml">
-                <i class='bx bx-user'></i>  
-            </div>
-            <div class="error-message" id="eml-error"></div>
-            
-    
-            <div class="input-field">
-                <input type="Password" class="input" placeholder="Password" id="pwd">
-                <i class='bx bx-lock-alt'></i>
-            </div>
-            <div class="error-message" id="pwd-error"></div>
-            
-            
-    
-            <div class="input-field">
-                <input type="submit" class="submit" value="Login" id="" onclick="auth()">
-            </div>
-    
-            <div class="two-col">
-                <div class="one">
-                   <input type="checkbox" name="" id="check">
-                   <label for="check"> Remember Me</label>
-                </div>
-                <div class="two">
-                    <label><a href="#">Forgot password?</a></label>
-                </div>
-            
-            </div>
-        </div>
-    </div>  
-</div>
-
-  <script>
-            function shwLogin(){
-                document.getElementById("form2").style.display = "block";
-                document.getElementById("form1").style.display = "none";
-            }
-
-            function reg() {
-                var userName = document.querySelector('#username').value;
-                var userEmail = document.querySelector('#email').value;
-                var password = document.querySelector('#password').value;
-                var usernameError = document.querySelector('#username-error');
-                var emailError = document.querySelector('#eml-error');
-                var passwordError = document.querySelector('#pwd-error');
-
-                // Reset error messages
-                usernameError.textContent = '';
-                emailError.textContent = '';
-                passwordError.textContent = '';
-
-                // Validate username
-                if (userName.trim() === '') {
-                usernameError.textContent = '⚠ This is a required question.';
-                document.querySelector('#username').style.borderColor = 'red';
-                return false;
-                } else {
-                document.querySelector('#username').style.borderColor = '';
-                }
-
-                // Validate email
-                if (userEmail.trim() === '') {
-                emailError.textContent = '⚠ This is a required question.';
-                document.querySelector('#eml').style.borderColor = 'red';
-                return false;
-                } else {
-                document.querySelector('#eml').style.borderColor = '';
-                }
-
-                // Validate password
-                if (password.trim() === '') {
-                passwordError.textContent = '⚠ This is a required question.';
-                document.querySelector('#pwd').style.borderColor = 'red';
-                return false;
-                } else {
-                document.querySelector('#pwd').style.borderColor = '';
-                }
-
-                // Registration logic
-                var user = {
-                userEmail: userEmail,
-                password: password,
-                };
-
-                var json = JSON.stringify(user);
-
-                localStorage.setItem('user', json);
-                console.log('User Added');
-                alert('You are now registered!');
-
-                document.querySelector('#email').value = '';
-                document.querySelector('#password').value = '';
-                }
-
-
-            function auth() {
-                var userEmail = document.querySelector('#eml').value;
-                var password = document.querySelector('#pwd').value;
-                var emailError = document.querySelector('#eml-error');
-                var passwordError = document.querySelector('#pwd-error');
-                var user = localStorage.getItem('user');
-                var key = JSON.parse(user);
-
-            // Reset error messages
-            emailError.textContent = '';
-            passwordError.textContent = '';
-
-            //validate email
-            if (userEmail.trim() === '') {
-            emailError.textContent = ' ⚠ The email you entered is not connected to an account.';
-            document.querySelector('#eml').style.borderColor = 'red';
-            return false;
-            } else {
-            document.querySelector('#eml').style.borderColor = '';
-            }
-            //validate password
-            if (password.trim() === '') {
-            passwordError.textContent = '⚠ The password you have entered is incorrect.';
-            document.querySelector('#pwd').style.borderColor = 'red';
-            return false;
-            } else {
-            document.querySelector('#pwd').style.borderColor = '';
-            }
-
-            if ((userEmail === key.userEmail || userEmail === key.email) && password === key.password) {
-            window.location.assign('service.html');
-            alert('Successfully login!');
-            } else {
-            alert('User not found!');
-            }
-            }
-
-  </script>
+<script src="regin.js"></script>
 </body>
 </html>
