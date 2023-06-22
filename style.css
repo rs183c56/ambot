@@ -22,6 +22,7 @@
     
 }
 
+
 .navbar-container {
     display: flex;
     align-items: center;
@@ -66,8 +67,24 @@
 .navbar ul li:hover::after{
     width: 100%;
 }
+.hamburger{
+  display: none;
+  cursor: pointer;
+}
 
-
+/* .bar{
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: white;
+} */
+.icons #menu-bars{
+  display: none;
+}
+/*  */
 .content{
     width: 100%;
     position: absolute;
@@ -268,6 +285,7 @@ form textarea {
   box-sizing: border-box;
   font-size: 16px;
   margin-bottom: 20px;
+  color: #fff;
 }
 
 form textarea {
@@ -411,12 +429,12 @@ label a{
   margin-right: 30px;
   cursor: pointer;
 } */
-.radio_option label {
+/* .radio_option label {
   display: inline-block;
   margin-left: 10px;
   margin-bottom: 5px;
   cursor: pointer;
-  text-align: right; /* Add this line */
+  text-align: right; 
 }
 
 
@@ -439,11 +457,11 @@ label a{
 
 .radio_option input[type="radio"]:focus + label:before {
   outline: 1px solid #000;
-}
+} */
 
 
 
-.select_option select {
+/* .select_option select {
   display: block;
   color: #ffffff;
   width: 345px;
@@ -470,9 +488,9 @@ label a{
   border-width: 5px 5px 0 5px;
   border-color: #000 transparent transparent transparent;
   pointer-events: none;
-}
+} */
 
-.input-field input[type="date"] {
+/* .input-field input[type="date"] {
   display: block;
   width: 322px;
   padding: 10px;
@@ -480,7 +498,7 @@ label a{
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-top: 5px;
-}
+} */
 
 .log-in-submit input[type="submit"]{
   background: transparent;

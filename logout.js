@@ -17,3 +17,11 @@ setTimeout("preventBack()", 0);
 window.onunload = function () {
     null
 };
+//menu bars
+let menu = document.querySelector('#menu-bars');
+let navbar = document.querySelector('.navbar');
+
+menu.onclick = () => {
+    menu.classList.toggle('fa-time');
+    navbar.classList.toggle('active');
+}
