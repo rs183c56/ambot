@@ -58,7 +58,7 @@ window.onload = function () {
 }
 // show and hide password June 7
 // Get the password input and the show password icon
-const passwordInput = document.getElementById('password');
+const passwordInput = document.getElementById('Password');
 const togglePasswordIcon = document.querySelector('.toggle-password');
 
 // Add a click event listener to the toggle password icon
@@ -74,3 +74,4 @@ togglePasswordIcon.addEventListener('click', function () {
         togglePasswordIcon.classList.add('bx-lock-alt');
     }
 });
+
